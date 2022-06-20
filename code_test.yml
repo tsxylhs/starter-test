@@ -1,0 +1,40 @@
+code_text:
+  ustm: ojwt
+  port: 8835
+service:
+  db: stage
+opu-service:
+  db: opustage
+  ustm: ojwt
+opu-code_text:
+  ustm: ojwt
+fs-service:
+  db: stage
+
+cors:
+  allowAll: true
+  allowOrigin: localhost:3004
+
+db:
+  stage:
+    type: postgres
+    showSql: true
+    uri: "host=47.100.210.119 user=rfid password=yytt2022 dbname=rfid_cm sslmode=disable"
+  opustage:
+    type: postgres
+    showSql: true
+    uri: "host=47.100.210.119 user=rfid password=yytt2022 dbname=rfid_cm sslmode=disable"
+ustm:
+  ojwt:
+    type: jwt
+    name: ojut
+    secure: true
+    expire: 7200
+    secret: 123
+    sameSite: 4
+
+mqtt:
+  uri: ssl://mq.letsit.vip:8883
+  username: sa
+  password: public
+
