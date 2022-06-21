@@ -2,11 +2,13 @@ package main
 
 import (
 	"code_test/app"
+	"code_test/rest"
 	"fmt"
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/lib/pq"
 	starter "github.com/tsxylhs/go-starter/starter"
+	"github.com/tsxylhs/go-starter/web"
 
 	"golang.org/x/sync/errgroup"
 )
@@ -21,6 +23,11 @@ func main() {
 	apiServer := gin.New()
 	apiServer.Use(gin.Logger())
 	apiServer.Use(gin.Recovery())
+	//跨域过滤器
+	apiServer.Use(web.CorsHandler(app.WebApi))
+
+	pcApi := apiServer.Group("/api")
+	rest.RegisterAPIs(pcApi)
 	var g errgroup.Group
 	fmt.Println("app.WebApi.Port", app.WebApi.Port)
 	g.Go(func() error {

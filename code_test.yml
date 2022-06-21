@@ -1,4 +1,4 @@
-code_text:
+code_test:
   ustm: ojwt
   port: 8835
 service:
@@ -6,7 +6,7 @@ service:
 opu-service:
   db: opustage
   ustm: ojwt
-opu-code_text:
+opu-code_test:
   ustm: ojwt
 fs-service:
   db: stage
