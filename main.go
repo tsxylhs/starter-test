@@ -7,7 +7,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/lib/pq"
-	starter "github.com/tsxylhs/go-starter/starter"
+	"github.com/tsxylhs/go-starter/starter"
 	"github.com/tsxylhs/go-starter/web"
 
 	"golang.org/x/sync/errgroup"
@@ -20,6 +20,15 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	// var wg sync.WaitGroup
+	// wg.Add(1)
+	// go func(wg *sync.WaitGroup) {
+	// 	log.Logger.Logger.Info("测试线程")
+	// 	time.Sleep(2000022)
+	// 	wg.Done()
+
+	// }(&wg)
+	// wg.Wait()
 	apiServer := gin.New()
 	apiServer.Use(gin.Logger())
 	apiServer.Use(gin.Recovery())
