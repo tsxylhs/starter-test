@@ -3,6 +3,7 @@ module code_test
 go 1.17
 
 require (
+	github.com/gin-gonic/gin v1.7.7
 	github.com/lib/pq v1.10.6
 	github.com/tsxylhs/go-starter v1.0.1
 	golang.org/x/sync v0.0.0-20220601150217-0de741cfad7f
@@ -15,7 +16,6 @@ require (
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/gin-contrib/sessions v0.0.5 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
-	github.com/gin-gonic/gin v1.7.4 // indirect
 	github.com/go-playground/locales v0.13.0 // indirect
 	github.com/go-playground/universal-translator v0.17.0 // indirect
 	github.com/go-playground/validator/v10 v10.4.1 // indirect

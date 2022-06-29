@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/tsxylhs/go-starter/errors"
 	"github.com/tsxylhs/go-starter/log"
 	"github.com/tsxylhs/go-starter/validator"
 	"github.com/tsxylhs/go-starter/web"
@@ -26,7 +27,11 @@ func (api *test) PostTest(c *gin.Context) {
 	tests := &module.Test{}
 	if err := c.ShouldBind(tests); err != nil {
 		log.Logger.Logger.Info("test")
+		if err.Error() == string(errors.NotFounds) {
+			errors.G.ResourceNotFound("12", "123", err)
+		}
 	}
+
 	code, errmessage := validator.BindAndValid(c, tests)
 	if code != http.StatusOK {
 		c.JSON(code, errmessage)
@@ -34,6 +39,7 @@ func (api *test) PostTest(c *gin.Context) {
 	}
 	c.JSON(200, tests)
 }
+
 func (api *test) Register(router gin.IRouter) {
 	r := router.Group("/v1")
 	r.GET("/get", api.Get) // 获取单条记录
