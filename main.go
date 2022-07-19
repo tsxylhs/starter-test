@@ -24,33 +24,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	// var result = make(chan interface{}, 5)
-	// var task = task.Task{
-	// 	CountPool:   5,
-	// 	Name:        "测试",
-	// 	Description: []string{"简单并发模型"},
-	// 	Do:          dosomething,
-	// 	Results:     result,
-	// }
-	//task.Task3()
-
-	// for {
-	// 	v, ok := <-task.Results
-
-	// 	if !ok {
-	// 		break
-	// 	}
-	// 	fmt.Printf("task 读到数据=%v\n", v)
-	// }
-	// var wg sync.WaitGroup
-	// wg.Add(1)
-	// go func(wg *sync.WaitGroup) {
-	// 	log.Logger.Logger.Info("测试线程")
-	// 	time.Sleep(2000022)
-	// 	wg.Done()
-
-	// }(&wg)
-	// wg.Wait()
 	apiServer := gin.New()
 	apiServer.Use(gin.Logger())
 	apiServer.Use(gin.Recovery())

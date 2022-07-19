@@ -5,7 +5,7 @@ go 1.17
 require (
 	github.com/gin-gonic/gin v1.7.7
 	github.com/lib/pq v1.10.6
-	github.com/tsxylhs/go-starter v1.0.1
+	github.com/tsxylhs/go-starter v1.0.2
 	golang.org/x/sync v0.0.0-20220601150217-0de741cfad7f
 )
 
@@ -61,4 +61,4 @@ require (
 	xorm.io/xorm v1.3.1 // indirect
 )
 
-replace github.com/tsxylhs/go-starter => /Users/lvhoushuai_vendor/work/topiot/go-starter
+replace github.com/tsxylhs/go-starter => /Users/houlv/work/private/golang/go-starter
