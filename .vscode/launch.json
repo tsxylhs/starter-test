@@ -9,7 +9,7 @@
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "/Users/lvhoushuai_vendor/work/topiot/code_test/main.go"
+            "program": "/Users/houlv/work/private/golang/starter-test/main.go"
         }
     ]
 }

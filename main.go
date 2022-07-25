@@ -9,6 +9,7 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
+
 	_ "github.com/lib/pq"
 	"github.com/tsxylhs/go-starter/log"
 	"github.com/tsxylhs/go-starter/starter"
@@ -18,7 +19,8 @@ import (
 )
 
 func main() {
-	app.WebApi.Mount(app.Server)
+	app.WebApi.Mount(app.Server, app.MqttServer)
+
 	starter.RegisterStarter(app.WebApi)
 	err := starter.Start()
 	if err != nil {
@@ -33,6 +35,10 @@ func main() {
 	pcApi := apiServer.Group("/api")
 	rest.RegisterAPIs(pcApi)
 	var g errgroup.Group
+	client := app.MqttServer.SharedBroker
+	if client.IsConnected() {
+		log.Logger.Logger.Info("mqtt is connect success")
+	}
 	fmt.Println("app.WebApi.Port", app.WebApi.Port)
 	g.Go(func() error {
 		return apiServer.Run(":" + app.WebApi.Port)
