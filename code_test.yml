@@ -35,7 +35,7 @@ ustm:
 
 mqtt:
   letsit-vip:
-    host: tcp://mq.letsit.vip:1883
+    host: tcp://mq.lncios.cn:1883
     clientID: main-mq
     username: sa
     password: public
