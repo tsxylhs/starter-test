@@ -34,9 +34,15 @@ ustm:
     sameSite: 4
 
 mqtt:
-  letsit-vip:
+  lncios.cn:
     host: tcp://mq.lncios.cn:1883
     clientID: main-mq
     username: sa
     password: public
+tcp:    
+  protocol: 'tcp'
+  host: 127.0.0.1
+  port: 1111
+  heartbeat: 500
+  isStart: true
 

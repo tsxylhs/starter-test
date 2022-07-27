@@ -19,7 +19,7 @@ import (
 )
 
 func main() {
-	app.WebApi.Mount(app.Server, app.MqttServer)
+	app.WebApi.Mount(app.Server, app.MqttClient, app.TcpClient)
 
 	starter.RegisterStarter(app.WebApi)
 	err := starter.Start()
@@ -35,10 +35,12 @@ func main() {
 	pcApi := apiServer.Group("/api")
 	rest.RegisterAPIs(pcApi)
 	var g errgroup.Group
-	client := app.MqttServer.SharedBroker
+	client := app.MqttClient.SharedBroker
 	if client.IsConnected() {
 		log.Logger.Logger.Info("mqtt is connect success")
 	}
+	tcpClient := app.TcpClient.SharedBroker.ConnTcp
+	tcpClient.Write([]byte("1212"))
 	fmt.Println("app.WebApi.Port", app.WebApi.Port)
 	g.Go(func() error {
 		return apiServer.Run(":" + app.WebApi.Port)
