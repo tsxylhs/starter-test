@@ -36,11 +36,13 @@ func main() {
 	rest.RegisterAPIs(pcApi)
 	var g errgroup.Group
 	client := app.MqttClient.SharedBroker
-	if client.IsConnected() {
+	if client != nil && client.IsConnected() {
 		log.Logger.Logger.Info("mqtt is connect success")
 	}
 	tcpClient := app.TcpClient.SharedBroker.ConnTcp
-	tcpClient.Write([]byte("1212"))
+	if tcpClient != nil {
+		tcpClient.Write([]byte("1212"))
+	}
 	fmt.Println("app.WebApi.Port", app.WebApi.Port)
 	g.Go(func() error {
 		return apiServer.Run(":" + app.WebApi.Port)

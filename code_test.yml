@@ -43,6 +43,6 @@ tcp:
   protocol: 'tcp'
   host: 127.0.0.1
   port: 1111
-  heartbeat: 500
+  heartbeat: 5
   isStart: true
 
