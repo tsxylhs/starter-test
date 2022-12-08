@@ -31,7 +31,8 @@ func main() {
 	apiServer.Use(gin.Recovery())
 	//跨域过滤器
 	apiServer.Use(web.CorsHandler(app.WebApi))
-
+	log.Logger.Logger.Info("testInfo")
+	log.Logger.Logger.Debug("testDebug")
 	pcApi := apiServer.Group("/api")
 	rest.RegisterAPIs(pcApi)
 	var g errgroup.Group

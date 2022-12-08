@@ -64,4 +64,4 @@ require (
 	xorm.io/xorm v1.3.1 // indirect
 )
 
-replace github.com/tsxylhs/go-starter => /Users/houlv/work/private/golang/go-starter
+replace github.com/tsxylhs/go-starter => /Users/houlv/work/private/go-starter

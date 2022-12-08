@@ -2,28 +2,28 @@ code_test:
   ustm: ojwt
   port: 8835
 service:
-  db: stage
+  #db: stage
 opu-service:
-  db: opustage
+ # db: opustage
   ustm: ojwt
 opu-code_test:
   ustm: ojwt
 fs-service:
-  db: stage
+ # db: stage
 
 cors:
   allowAll: true
   allowOrigin: localhost:3004
 
-db:
-  stage:
-    type: postgres
-    showSql: true
-    uri: "host=47.100.210.119 user=rfid password=yytt2022 dbname=rfid_cm sslmode=disable"
-  opustage:
-    type: postgres
-    showSql: true
-    uri: "host=47.100.210.119 user=rfid password=yytt2022 dbname=rfid_cm sslmode=disable"
+# db:
+#   stage:
+#     type: postgres
+#     showSql: true
+#     uri: "host="" user="" password="" dbname="" sslmode=disable"
+#   opustage:
+#     type: postgres
+#     showSql: true
+#     uri: "host="" user="" password="" dbname="" sslmode=disable"
 ustm:
   ojwt:
     type: jwt
