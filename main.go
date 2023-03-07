@@ -14,12 +14,13 @@ import (
 	"github.com/tsxylhs/go-starter/log"
 	"github.com/tsxylhs/go-starter/starter"
 	"github.com/tsxylhs/go-starter/web"
-
+	user_module "github.com/tsxylhs/user-module"
+	userApi "github.com/tsxylhs/user-module/rest"
 	"golang.org/x/sync/errgroup"
 )
 
 func main() {
-	app.WebApi.Mount(app.Server, app.MqttClient, app.TcpClient)
+	app.WebApi.Mount(user_module.Service, user_module.Api, app.Server, app.MqttClient)
 
 	starter.RegisterStarter(app.WebApi)
 	err := starter.Start()
@@ -34,6 +35,7 @@ func main() {
 	log.Logger.Logger.Info("testInfo")
 	log.Logger.Logger.Debug("testDebug")
 	pcApi := apiServer.Group("/api")
+	userApi.RegisterAPIs(pcApi)
 	rest.RegisterAPIs(pcApi)
 	var g errgroup.Group
 	client := app.MqttClient.SharedBroker

@@ -3,10 +3,11 @@ code_test:
   port: 8835
 service:
   #db: stage
-opu-service:
- # db: opustage
+user-module-service:
+  db: opustage
   ustm: ojwt
-opu-code_test:
+code_server:
+  db: opustage
   ustm: ojwt
 fs-service:
  # db: stage
@@ -15,15 +16,15 @@ cors:
   allowAll: true
   allowOrigin: localhost:3004
 
-# db:
-#   stage:
-#     type: postgres
-#     showSql: true
-#     uri: "host="" user="" password="" dbname="" sslmode=disable"
-#   opustage:
-#     type: postgres
-#     showSql: true
-#     uri: "host="" user="" password="" dbname="" sslmode=disable"
+db:
+  stage:
+    type: postgres
+    showSql: true
+    uri: "host="127.0.0.1" user="root" password="Abc123++" dbname="db" sslmode=disable"
+  opustage:
+    type: postgres
+    showSql: true
+    uri: "host="127.0.0.1" user="root" password="Abc123++" dbname="db" sslmode=disable"
 ustm:
   ojwt:
     type: jwt
