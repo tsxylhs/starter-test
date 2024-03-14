@@ -4,6 +4,7 @@ go 1.17
 
 require (
 	github.com/gin-gonic/gin v1.7.7
+	github.com/go-sql-driver/mysql v1.6.0
 	github.com/lib/pq v1.10.6
 	github.com/tsxylhs/go-starter v1.0.2
 	github.com/tsxylhs/user-module v0.0.1
@@ -66,6 +67,6 @@ require (
 )
 
 replace (
-github.com/tsxylhs/go-starter => D:\private\go-starter
-github.com/tsxylhs/user-module => D:\private\user-module
+	github.com/tsxylhs/go-starter => /Users/houlv/work/private/go-starter
+	github.com/tsxylhs/user-module => /Users/houlv/work/private/user-module
 )

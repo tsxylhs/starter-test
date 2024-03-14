@@ -2,7 +2,7 @@ code_test:
   ustm: ojwt
   port: 8835
 service:
-  #db: stage
+  db: opustage
 user-module-service:
   db: opustage
   ustm: ojwt
@@ -15,16 +15,15 @@ fs-service:
 cors:
   allowAll: true
   allowOrigin: localhost:3004
-
 db:
   stage:
-    type: postgres
-    showSql: true
-    uri: "host="127.0.0.1" user="root" password="Abc123++" dbname="db" sslmode=disable"
+      type: postgres
+      showSql: true
+      uri: "host=127.0.0.1 user=root password=Abc123++ dbname=db sslmode=disable"
   opustage:
-    type: postgres
-    showSql: true
-    uri: "host="127.0.0.1" user="root" password="Abc123++" dbname="db" sslmode=disable"
+      type: mysql
+      showSql: true
+      uri: "root:abc12345@tcp(39.100.19.104:3306)/iot?charset=utf8"
 ustm:
   ojwt:
     type: jwt

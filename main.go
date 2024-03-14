@@ -9,7 +9,7 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-
+	_ "github.com/go-sql-driver/mysql"
 	_ "github.com/lib/pq"
 	"github.com/tsxylhs/go-starter/log"
 	"github.com/tsxylhs/go-starter/starter"
@@ -20,7 +20,8 @@ import (
 )
 
 func main() {
-	app.WebApi.Mount(user_module.Service, user_module.Api, app.Server, app.MqttClient)
+
+	app.WebApi.Mount(app.TcpClient, app.Server, app.MqttClient, user_module.Service, user_module.Api)
 
 	starter.RegisterStarter(app.WebApi)
 	err := starter.Start()
@@ -46,6 +47,7 @@ func main() {
 	if tcpClient != nil {
 		tcpClient.Write([]byte("1212"))
 	}
+
 	fmt.Println("app.WebApi.Port", app.WebApi.Port)
 	g.Go(func() error {
 		return apiServer.Run(":" + app.WebApi.Port)
